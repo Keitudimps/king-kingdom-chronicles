@@ -56,7 +56,7 @@ const Navigation = () => {
       {/* Back to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`back-to-top ${showBackToTop ? 'visible' : ''}`}
+        className={`back-to-top ${showBackToTop ? 'show' : ''}`}
         aria-label="Back to top"
       >
         <ArrowUp size={20} />
