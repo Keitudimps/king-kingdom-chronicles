@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,14 +24,10 @@ const Home = () => {
       <section className="hero-gradient py-20 px-6">
         <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'fade-in' : 'opacity-0'}`}>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Author Portrait */}
+            {/* Author Portrait - Temporarily simplified */}
             <div className="text-center lg:text-left">
-              <div className="inline-block overflow-hidden rounded-2xl shadow-2xl">
-                <img
-                  src="/stephen-king-portrait.jpg"
-                  alt="Stephen King Portrait"
-                  className="w-full max-w-md h-auto transition-transform duration-500 hover:scale-105"
-                />
+              <div className="inline-block overflow-hidden rounded-2xl shadow-2xl bg-gray-200 w-80 h-80 flex items-center justify-center">
+                <span className="text-gray-500">Stephen King Portrait</span>
               </div>
             </div>
 
@@ -55,12 +52,12 @@ const Home = () => {
                 </p>
               </div>
               <div className="pt-4">
-                <a 
-                  href="/books" 
+                <Link 
+                  to="/books" 
                   className="btn-literary inline-flex items-center"
                 >
                   Explore My Works
-                </a>
+                </Link>
               </div>
             </div>
           </div>
