@@ -2,57 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Stephen King Portfolio Design System - Premium Author Portfolio
+All colors MUST be HSL. Literary elegance with subtle suspense.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Premium beige background palette */
+    --background: 30 12% 97%;
+    --foreground: 210 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Elegant card styling */
+    --card: 30 15% 98%;
+    --card-foreground: 210 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 30 15% 98%;
+    --popover-foreground: 210 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Deep charcoal navy primary */
+    --primary: 210 25% 18%;
+    --primary-foreground: 30 12% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Warm secondary tones */
+    --secondary: 30 8% 92%;
+    --secondary-foreground: 210 25% 18%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Subtle muted tones */
+    --muted: 30 8% 94%;
+    --muted-foreground: 210 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Golden accent for highlights */
+    --accent: 35 65% 65%;
+    --accent-foreground: 210 25% 18%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 30 12% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Refined borders and inputs */
+    --border: 30 8% 88%;
+    --input: 30 8% 90%;
+    --ring: 210 25% 18%;
 
-    --radius: 0.5rem;
+    /* Literary elegance gradients */
+    --hero-gradient: linear-gradient(135deg, hsl(30 12% 97%), hsl(30 8% 94%));
+    --book-hover-shadow: 0 10px 30px -5px hsl(210 25% 18% / 0.15);
+    --premium-shadow: 0 4px 20px -2px hsl(210 25% 18% / 0.08);
 
-    --sidebar-background: 0 0% 98%;
+    --radius: 0.75rem;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar colors (if needed) */
+    --sidebar-background: 30 12% 97%;
+    --sidebar-foreground: 210 25% 15%;
+    --sidebar-primary: 210 25% 18%;
+    --sidebar-primary-foreground: 30 12% 97%;
+    --sidebar-accent: 30 8% 92%;
+    --sidebar-accent-foreground: 210 25% 18%;
+    --sidebar-border: 30 8% 88%;
+    --sidebar-ring: 35 65% 65%;
   }
 
   .dark {
@@ -100,6 +106,130 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+
+  /* Literary Typography */
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* Hero Section Styling */
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  /* Book Cover Hover Effects */
+  .book-card {
+    @apply transition-all duration-300 cursor-pointer;
+    box-shadow: var(--premium-shadow);
+  }
+
+  .book-card:hover {
+    @apply transform scale-105;
+    box-shadow: var(--book-hover-shadow);
+  }
+
+  /* Literary Button Variants */
+  .btn-literary {
+    @apply px-8 py-3 bg-primary text-primary-foreground font-inter font-medium rounded-lg;
+    @apply transition-all duration-300 hover:bg-primary/90 hover:shadow-lg;
+  }
+
+  .btn-accent {
+    @apply px-6 py-2 bg-accent text-accent-foreground font-inter font-medium rounded-md;
+    @apply transition-all duration-300 hover:bg-accent/90;
+  }
+
+  /* Elegant Form Styling */
+  .form-elegant {
+    @apply bg-card border border-border rounded-xl p-8 shadow-sm;
+  }
+
+  .input-elegant {
+    @apply w-full px-4 py-3 bg-background border border-border rounded-lg;
+    @apply focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none;
+    @apply transition-all duration-200;
+  }
+
+  /* Navigation Enhancements */
+  .nav-link {
+    @apply relative font-inter font-medium text-foreground transition-colors duration-300;
+    @apply hover:text-primary;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
+  /* Back to Top Button */
+  .back-to-top {
+    @apply fixed bottom-8 right-8 w-12 h-12 bg-primary text-primary-foreground;
+    @apply rounded-full shadow-lg opacity-0 invisible transition-all duration-300;
+    @apply hover:bg-primary/90 hover:shadow-xl;
+  }
+
+  .back-to-top.visible {
+    @apply opacity-100 visible;
+  }
+
+  /* Featured Book Highlight */
+  .featured-book {
+    @apply relative overflow-hidden;
+  }
+
+  .featured-book::before {
+    content: '';
+    @apply absolute top-0 right-0 w-0 h-0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid hsl(var(--accent));
+    border-bottom: 30px solid hsl(var(--accent));
+    border-top: 30px solid hsl(var(--accent));
+  }
+
+  .featured-book::after {
+    content: 'Featured';
+    @apply absolute top-1 right-1 text-xs font-bold text-accent-foreground;
+    @apply transform rotate-45 translate-x-1;
+  }
+}
+
+@layer utilities {
+  /* Fade In Animation */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .fade-in-delay {
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Smooth Scroll */
+  .smooth-scroll {
+    scroll-behavior: smooth;
   }
 }
