@@ -26,9 +26,13 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Author Portrait - Temporarily simplified */}
             <div className="text-center lg:text-left">
-              <div className="inline-block overflow-hidden rounded-2xl shadow-2xl bg-gray-200 w-80 h-80 flex items-center justify-center">
-                <span className="text-gray-500">Stephen King Portrait</span>
-              </div>
+              <div className="inline-block overflow-hidden rounded-2xl shadow-2xl w-full max-w-md h-[500px]">
+  <img 
+    src="/stephen-king-portrait.jpg"   // <-- your image path
+    alt="Stephen King Portrait"
+    className="w-full h-full object-cover"
+  />
+</div>
             </div>
 
             {/* Biography */}

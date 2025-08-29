@@ -30,7 +30,7 @@ const About = () => {
                 <img
                   src="/stephen-king-about.jpg"
                   alt="Stephen King Author Photo"
-                  className="w-full max-w-lg h-auto transition-transform duration-500 hover:scale-105"
+                  className="w-full max-w-lg h-[500px] transition-transform duration-500 hover:scale-105"
                 />
               </div>
             </div>
