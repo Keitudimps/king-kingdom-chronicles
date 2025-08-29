@@ -179,6 +179,7 @@ All colors MUST be HSL. Literary elegance with subtle suspense.
     @apply fixed bottom-8 right-8 w-12 h-12 bg-primary text-primary-foreground;
     @apply rounded-full shadow-lg transition-all duration-300;
     @apply hover:bg-primary/90 hover:shadow-xl;
+    @apply flex items-center justify-center;
     opacity: 0;
     visibility: hidden;
   }
