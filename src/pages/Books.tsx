@@ -14,6 +14,7 @@ interface Book {
 const Books = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedDecade, setSelectedDecade] = useState("all");
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100);
@@ -68,11 +69,16 @@ const Books = () => {
     { id: "you-like-it-darker", title: "You Like It Darker", year: 2024, cover: "/book-you-like-it-darker.jpg" },
   ];
 
-   const filteredBooks = books.filter(book =>
-    book.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Get unique decades from books
+  const decades = [...new Set(books.map(book => Math.floor(book.year / 10) * 10))].sort();
 
- return (
+  const filteredBooks = books.filter(book => {
+    const matchesSearch = book.title.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesDecade = selectedDecade === "all" || Math.floor(book.year / 10) * 10 === parseInt(selectedDecade);
+    return matchesSearch && matchesDecade;
+  });
+
+  return (
     <main className="min-h-screen py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className={`transition-all duration-1000 ${isVisible ? 'fade-in' : 'opacity-0'}`}>
@@ -85,14 +91,36 @@ const Books = () => {
               Explore the complete bibliography of Stephen King's novels, spanning over five decades of masterful storytelling
             </p>
 
-            {/* Search Input */}
-            <input
-              type="text"
-              placeholder="Search books..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="border border-border rounded-xl px-4 py-2 w-full max-w-md text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent mb-6"
-            />
+            {/* Search and Filter Controls */}
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center max-w-2xl mx-auto mb-6">
+              <input
+                type="text"
+                placeholder="Search books..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="border border-border rounded-xl px-4 py-2 w-full sm:max-w-md text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+              />
+              
+              <select
+                value={selectedDecade}
+                onChange={(e) => setSelectedDecade(e.target.value)}
+                className="border border-border rounded-xl px-4 py-2 w-full sm:w-auto text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent bg-background"
+              >
+                <option value="all">All Years</option>
+                {decades.map(decade => (
+                  <option key={decade} value={decade}>
+                    {decade}s
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Results count */}
+            {(searchTerm || selectedDecade !== "all") && (
+              <p className="text-center text-muted-foreground text-sm mb-6">
+                Showing {filteredBooks.length} of {books.length} books
+              </p>
+            )}
           </div>
 
           {/* Books Grid */}
@@ -129,6 +157,15 @@ const Books = () => {
               </Link>
             ))}
           </div>
+
+          {/* No results message */}
+          {filteredBooks.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground text-lg">
+                No books found matching your criteria.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </main>
