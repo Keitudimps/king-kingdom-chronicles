@@ -1,78 +1,43 @@
-# Welcome to your Lovable project
+# King Kingdom Chronicles – Author Portfolio Website
 
-## Project info
+## Project Overview
+This project is about creating a **portfolio website for an author**. The goal was to design and build a clean, modern, and responsive site that highlights the author’s biography, books, and a way for readers or collaborators to connect.  
 
-**URL**: https://lovable.dev/projects/751bde66-5918-4143-bea3-c9a8bf0be7e8
+For my chosen author, I focused on **Stephen King**, one of the most influential writers in modern literature.  
 
-## How can I edit this code?
+The design and development process followed the proposal guidelines for a minimalist, professional website, with inspiration drawn from premium portfolio layouts. I also used **Lovable AI** to support parts of the development and streamline the design process.  
 
-There are several ways of editing your application.
+🔗 **Live Demo:** [King Kingdom Chronicles](https://king-kingdom-chronicles.lovable.app/)  
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/751bde66-5918-4143-bea3-c9a8bf0be7e8) and start prompting.
+## Goals of the Project
+- Build a visually appealing and professional author portfolio.  
+- Create an engaging **About the Author** page with Stephen King’s biography.  
+- Showcase books in a structured and attractive grid layout with cover art and details.  
+- Provide a **Contact Page** with a simple form for inquiries.  
+- Ensure responsiveness across desktop, tablet, and mobile devices.  
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## Website Structure
+- **Landing Page:** Introduction, branding, and a welcoming design.  
+- **About Page:** Author biography and portrait (focused on Stephen King).  
+- **Books Page:** Collection of Stephen King’s works with cover art, publication details, and descriptions.  
+- **Contact Page:** Simple, clean contact form with a call-to-action.  
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Learning Outcomes
+Through this project I gained:  
+- Hands-on experience with **responsive web development**.  
+- Knowledge of **UI/UX design principles** for minimalist layouts.  
+- Practice in using tools like **Lovable AI** for rapid prototyping and support.  
+- A better understanding of project workflows from wireframes to deployment.  
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/751bde66-5918-4143-bea3-c9a8bf0be7e8) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)  
-# Wireframes
-
-Here’s a preview of the application wireframes:
+## Wireframes
+Here’s a preview of the wireframes created for this project:
 
 ![Wireframes](https://github.com/Keitudimps/king-kingdom-chronicles/blob/main/public/wireframes.png?raw=true)
