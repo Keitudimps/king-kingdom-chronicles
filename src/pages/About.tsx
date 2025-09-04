@@ -8,6 +8,15 @@ const About = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const achievements = [
+    "Over 350 million books sold worldwide",
+    "Master of Horror, Suspense, and Supernatural Fiction",
+    "Author of 65+ novels and 200+ short stories",
+    "Recipient of the 2003 National Book Foundation Medal",
+    "Bram Stoker Award Winner (Multiple Times)",
+    "World Fantasy Award for Life Achievement",
+  ];
+
   return (
     <main className="min-h-screen py-20 px-6">
       <div className="max-w-6xl mx-auto">
@@ -23,7 +32,7 @@ const About = () => {
           </div>
 
           {/* Main Content */}
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
             {/* Author Image */}
             <div className="text-center">
               <div className="inline-block overflow-hidden rounded-2xl shadow-2xl">
@@ -75,8 +84,33 @@ const About = () => {
             </div>
           </div>
 
+          {/* Literary Achievements Section */}
+          <div className={`transition-all duration-1000 delay-600 ${isVisible ? 'fade-in-delay' : 'opacity-0'}`}>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-playfair font-bold text-primary mb-4">
+                Literary Achievements
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                A career spanning over five decades of masterful storytelling
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              {achievements.map((achievement, index) => (
+                <div 
+                  key={index} 
+                  className="bg-card p-6 rounded-xl shadow-sm border border-border hover:shadow-md transition-all duration-300"
+                >
+                  <p className="text-foreground font-inter font-medium text-center">
+                    {achievement}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Writing Philosophy */}
-          <div className="mt-20 bg-card p-8 rounded-2xl shadow-sm border border-border">
+          <div className={`bg-card p-8 rounded-2xl shadow-sm border border-border transition-all duration-1000 delay-800 ${isVisible ? 'fade-in-delay' : 'opacity-0'}`}>
             <h2 className="text-3xl font-playfair font-bold text-primary mb-6 text-center">
               Writing Philosophy
             </h2>

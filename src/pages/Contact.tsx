@@ -56,35 +56,8 @@ const Contact = () => {
                   Contact Information
                 </h2>
                 <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-inter font-semibold text-foreground mb-1">Email</h3>
-                      <p className="text-muted-foreground">contact@stephenking.com</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-inter font-semibold text-foreground mb-1">Phone</h3>
-                      <p className="text-muted-foreground">+1 (207) 555-0123</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <MapPin className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-inter font-semibold text-foreground mb-1">Location</h3>
-                      <p className="text-muted-foreground">Bangor, Maine, USA</p>
-                    </div>
-                  </div>
+                  
+      
                 </div>
               </div>
 

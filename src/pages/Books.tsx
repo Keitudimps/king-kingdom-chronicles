@@ -13,6 +13,7 @@ interface Book {
 
 const Books = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100);
@@ -67,9 +68,11 @@ const Books = () => {
     { id: "you-like-it-darker", title: "You Like It Darker", year: 2024, cover: "/book-you-like-it-darker.jpg" },
   ];
 
-  const featuredBook = books.find(book => book.featured);
+   const filteredBooks = books.filter(book =>
+    book.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-  return (
+ return (
     <main className="min-h-screen py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className={`transition-all duration-1000 ${isVisible ? 'fade-in' : 'opacity-0'}`}>
@@ -78,56 +81,23 @@ const Books = () => {
             <h1 className="text-5xl font-playfair font-bold text-primary mb-6">
               Complete Works
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-6">
               Explore the complete bibliography of Stephen King's novels, spanning over five decades of masterful storytelling
             </p>
-          </div>
 
-          {/* Featured Book of the Month */}
-          {featuredBook && (
-            <div className="mb-16">
-              <div className="bg-card p-8 rounded-2xl shadow-lg border border-border relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-accent text-accent-foreground px-4 py-2 rounded-bl-lg">
-                  <div className="flex items-center space-x-2">
-                    <Star size={16} />
-                    <span className="font-inter font-medium text-sm">Featured</span>
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-3 gap-8 items-center">
-                  <div className="text-center">
-                    <img
-                      src={featuredBook.cover}
-                      alt={`${featuredBook.title} cover`}
-                      className="w-full max-w-xs mx-auto h-auto rounded-lg shadow-lg"
-                    />
-                  </div>
-                  <div className="md:col-span-2 space-y-4">
-                    <h2 className="text-3xl font-playfair font-bold text-primary">
-                      Book of the Month
-                    </h2>
-                    <h3 className="text-2xl font-playfair text-foreground">
-                      {featuredBook.title} ({featuredBook.year})
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Stephen King's debut novel that launched one of the most successful writing careers in modern literature. 
-                      A tale of telekinetic revenge that established the template for supernatural horror that would follow.
-                    </p>
-                    <Link
-                      to={`/books/${featuredBook.id}`}
-                      className="btn-accent inline-flex items-center mt-4"
-                    >
-                      Read More
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+            {/* Search Input */}
+            <input
+              type="text"
+              placeholder="Search books..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="border border-border rounded-xl px-4 py-2 w-full max-w-md text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent mb-6"
+            />
+          </div>
 
           {/* Books Grid */}
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-            {books.map((book, index) => (
+            {filteredBooks.map((book, index) => (
               <Link
                 key={book.id}
                 to={`/books/${book.id}`}
