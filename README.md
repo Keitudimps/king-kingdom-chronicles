@@ -71,4 +71,8 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)  
-![Wireframe](blob/main/public/wireframes.png)
+# Wireframes
+
+Here’s a preview of the application wireframes:
+
+![Wireframes](https://github.com/Keitudimps/king-kingdom-chronicles/blob/main/public/wireframes.png?raw=true)
